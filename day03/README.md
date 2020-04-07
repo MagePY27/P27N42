@@ -2,12 +2,15 @@
 
 
 ##urls部分
+
+        
         from django.contrib import admin
         from django.urls import path,re_path
         from . import views,views1,views2
         import re
         app_name='hello'
-        #普通参数
+        
+         
         urlpatterns = [
         
             #简易用户管理系统
