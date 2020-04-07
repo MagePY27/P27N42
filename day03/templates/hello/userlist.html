@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>用户列表</title>
+</head>
+<body>
+<form action="{% url 'hello:userlist' %}">
+    <input type="text" name="keyword" value="{{ keyword }}" placeholder="请输入关键字">
+    <button type="submit"> 搜索</button>
+<p style="background-color:yellow;">⽤户列表</p>
+<table border="1">
+<thead>
+    <tr>
+        <th>ID</th>
+        <th>姓名</th>
+        <th>密码</th>
+        <th>性别</th>
+        <th>操作</th>
+    </tr>
+</thead>
+<tbody>
+{% for user in users %}
+<tr>
+    <td>{{ user.id }} </td>
+    <td>{{ user.name }} </td>
+    <td>{{ user.password }} </td>
+    <td>{% if user.sex == 0 %} 男 {% elif user.sex == 1  %} 女{% else %} 未定义{% endif %} </td>
+ <td>
+     <a href="{% url 'hello:useradd' %}">新增</a>
+     <a href="{% url 'hello:usermod' user.id %}">更新</a>
+      <!-- <a href="/hello/userdel/{{ user.id }}">删除</a>-->
+     <a href="{% url 'hello:userdel' user.id %}">删除</a>
+
+
+ </td>
+</tr>
+ {% endfor %}
+</tbody>
+</table>
+<p style="background-color:red;">版权所有:⻢哥教育</p>
+</body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+ <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en"> <head>
+<meta http-equiv="Content-Type" content="text/html;charset=UTF- 8" />
+     <title>用户修改</title>
+  <head>
+<body>
+{% if msg.code == 0 %}
+    <p style="color:grean">{{ msg.result }}</p>
+{% else %}
+    <p style="color:red">{{ msg.errmsg }}</p>
+{% endif %}
+<form method="post" action="">
+    姓名：
+    <input type="text" name="name" value={{ user.name }}>
+    <br>
+    <br>
+    密码:
+    <input type="password"，name="password" value={{ user.password }}>
+    <br>
+    <br>
+    性别：
+    {% if user.sex == 0  %}
+          <!--注意 input 参数之间不要用","-->
+    <input type="radio" name="sex" value="0" checked>男
+    <input type="radio" name="sex" value="1">女
+    {% else %}
+     <input type="radio" name="sex" value="0">男
+    <input type="radio" name="sex" value="1"  checked>女
+    {% endif %}
+    <br>
+    <br>
+    <button type="submit">确定</button>
+    <button><a href="{% url 'hello:userlist' %}" >取消</a></button>
+</form>
+</body>
+</html>

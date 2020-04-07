@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Devops</title>
+</head>
+
+<P> {{ classname}}</P>
+<li> {{ books.0 }}</li>
+<li> {{ books.1 }}</li>
+<li> {{ books.2 }}</li>
+<div color="blue"><br>hello my name is {{ user.name }} </br>
+my age is {{ user.age }}</div>
+{% if user %}
+<p> name:{{ user.name }} </p>
+{% else %}
+    用户不存在
+{% endif %}
+
+{% for book  in books %}
+<li>{{ book }}</li>
+{% endfor %}
+
+{% for user in userlist %}
+<li>{{ user.name }}--->{{ user.age }}</li>
+{% endfor %}
+
+</body>
+</html>

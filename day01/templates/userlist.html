@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>自动化运维平台</title>
+</head>
+<body>
+<p style="background-color:yellow;">⽤用户列列表</p>
+<table border="1">
+<thead>
+    <tr>
+        <th>用户名</th>
+        <th>姓名</th>
+        <th>年龄</th>
+    </tr>
+</thead>
+<tbody>
+{% for user in users %}
+<tr>
+    <td>{{ user.username }} </td>
+    <td>{{ user.name_cn }} </td>
+    <td>{{ user.age }} </td>
+</tr>
+ {% endfor %}
+</tbody>
+</table>
+<p style="background-color:red;">版权所有:⻢哥教育</p>
+</body>
+</html>
